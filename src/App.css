@@ -45,3 +45,21 @@
   margin-bottom: 1rem;
   width: 200px;
 }
+button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+
+.expense-table td button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+}
+
+.expense-table td button:hover {
+  background-color: #e60000;
+}

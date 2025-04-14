@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState } from "react";
 import './App.css'
-import ExpenseForm from './components/ExpenseForm'
-import ExpenseTable from './components/ExpenseTable'
-import SearchBar from './components/SearchBar'
+import ExpenseForm from "./components/ExpenseForm";
+import ExpenseTable from "./components/ExpenseTable";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -12,17 +12,23 @@ function App() {
     setExpenses([...expenses, expense]);
   };
 
-  const filteredExpenses = expenses.filter((exp) =>
-    exp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    exp.description.toLowerCase().includes(searchTerm.toLowerCase())
+  const deleteExpense = (id) => {
+    setExpenses(expenses.filter(expense => expense.id !== id));
+  };
+
+  const filteredExpenses = expenses.filter(expense => 
+    expense.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="App">
-      <h1>Expense Tracker</h1>
+      <h1>Expense tracker</h1>
       <SearchBar setSearchTerm={setSearchTerm} />
       <ExpenseForm addExpense={addExpense} />
-      <ExpenseTable expenses={filteredExpenses} />
+      <ExpenseTable 
+        expenses={filteredExpenses} 
+        deleteExpense={deleteExpense} 
+      />
     </div>
   );
 }
