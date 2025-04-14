@@ -1,4 +1,4 @@
-function ExpenseTable({ expenses, deleteExpense }) {
+const ExpenseTable = ({ expenses, deleteExpense }) => {
     return (
       <table className="expense-table">
         <thead>
@@ -6,7 +6,9 @@ function ExpenseTable({ expenses, deleteExpense }) {
             <th>Name</th>
             <th>Amount</th>
             <th>Description</th>
-            
+            <th>Category</th>
+            <th>Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -15,6 +17,8 @@ function ExpenseTable({ expenses, deleteExpense }) {
               <td>{expense.name}</td>
               <td>{expense.amount}</td>
               <td>{expense.description}</td>
+              <td>{expense.category}</td>
+              <td>{expense.date}</td>
               <td>
                 <button onClick={() => deleteExpense(expense.id)}>Delete</button>
               </td>
@@ -23,7 +27,7 @@ function ExpenseTable({ expenses, deleteExpense }) {
         </tbody>
       </table>
     );
-  }
+  };
   
   export default ExpenseTable;
   

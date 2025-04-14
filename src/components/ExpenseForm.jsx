@@ -1,18 +1,29 @@
 import { useState } from 'react';
 
 const ExpenseForm = ({ addExpense }) => {
-  const [formData, setFormData] = useState({ name: '', amount: '', description: '' });
+  const [formData, setFormData] = useState({
+    name: '', 
+    amount: '', 
+    description: '', 
+    category: '', 
+    date: ''
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.amount) return;
+    e.preventDefault(); // Prevent page reload
+    if (!formData.name || !formData.amount || !formData.category || !formData.date) return; // Ensure all fields are filled
 
-    addExpense({ ...formData, id: Date.now() });
-    setFormData({ name: '', amount: '', description: '' });
+    // Create expense object with unique id
+    addExpense({ 
+      ...formData, 
+      id: Date.now(), 
+      date: new Date(formData.date).toLocaleDateString() // Format the date to a readable format
+    });
+    setFormData({ name: '', amount: '', description: '', category: '', date: '' }); // Reset form
   };
 
   return (
@@ -37,6 +48,21 @@ const ExpenseForm = ({ addExpense }) => {
         value={formData.description}
         onChange={handleChange}
         placeholder="Description"
+      />
+      <input
+        name="category"
+        value={formData.category}
+        onChange={handleChange}
+        placeholder="Category"
+        required
+      />
+      <input
+        name="date"
+        type="date"
+        value={formData.date}
+        onChange={handleChange}
+        placeholder="Date"
+        required
       />
       <button type="submit">Add Expense</button>
     </form>

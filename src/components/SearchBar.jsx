@@ -1,13 +1,30 @@
+import { useState } from 'react';
+
 const SearchBar = ({ setSearchTerm }) => {
-    return (
+  const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleClick = () => {
+    setSearchTerm(inputValue);
+  };
+
+  return (
+    <div className="search-container">
       <input
         type="text"
         placeholder="Search expenses..."
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={inputValue}
+        onChange={handleChange}
         className="search-bar"
       />
-    );
-  };
-  
-  export default SearchBar;
-  
+      <button className="search-button" onClick={handleClick}>
+        Search
+      </button>
+    </div>
+  );
+};
+
+export default SearchBar;
