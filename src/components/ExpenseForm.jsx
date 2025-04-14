@@ -14,16 +14,16 @@ const ExpenseForm = ({ addExpense }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
-    if (!formData.name || !formData.amount || !formData.category || !formData.date) return; // Ensure all fields are filled
+    e.preventDefault(); 
+    if (!formData.name || !formData.amount || !formData.category || !formData.date) return; 
 
-    // Create expense object with unique id
+    
     addExpense({ 
       ...formData, 
       id: Date.now(), 
-      date: new Date(formData.date).toLocaleDateString() // Format the date to a readable format
+      date: new Date(formData.date).toLocaleDateString() 
     });
-    setFormData({ name: '', amount: '', description: '', category: '', date: '' }); // Reset form
+    setFormData({ name: '', amount: '', description: '', category: '', date: '' }); 
   };
 
   return (

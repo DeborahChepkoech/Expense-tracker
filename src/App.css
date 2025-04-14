@@ -58,7 +58,7 @@ button {
 .expense-table td button:hover {
   background-color: #e60000;
 }
-/* Search Container */
+
 .search-container {
   display: flex;
   align-items: center;
@@ -66,23 +66,22 @@ button {
   gap: 0.5rem;
 }
 
-/* Input Field */
+
 .search-bar {
   padding: 0.5rem;
   font-size: 1rem;
-  width: 250px;  /* You can adjust the width based on preference */
+  width: 250px;  
   border: 2px solid #007bff;
   border-radius: 4px;
   outline: none;
   transition: border-color 0.3s ease;
 }
 
-/* Input Field Hover Effect */
+
 .search-bar:hover {
   border-color: #0056b3;
 }
 
-/* Search Button */
 .search-button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -94,12 +93,10 @@ button {
   transition: background-color 0.3s ease;
 }
 
-/* Button Hover Effect */
 .search-button:hover {
   background-color: #0056b3;
 }
 
-/* Button Focus Effect */
 .search-button:focus {
   outline: none;
 }

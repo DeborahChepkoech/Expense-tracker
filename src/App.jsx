@@ -8,17 +8,17 @@ function App() {
   const [expenses, setExpenses] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Add expense to the list
+  
   const addExpense = (expense) => {
-    setExpenses([...expenses, expense]); // Add new expense to the list
+    setExpenses([...expenses, expense]); 
   };
 
-  // Delete expense from the list
+  
   const deleteExpense = (id) => {
-    setExpenses(expenses.filter(expense => expense.id !== id)); // Filter out the deleted expense
+    setExpenses(expenses.filter(expense => expense.id !== id)); 
   };
 
-  // Filter expenses based on search term
+  
   const filteredExpenses = expenses.filter(expense => 
     expense.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
     expense.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
